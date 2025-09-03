@@ -6,8 +6,11 @@ import requests
 # ---------------------------
 # Load Model and Encoders
 # ---------------------------
-with open("urea_model.pkl", "rb") as f:
-    model = pickle.load(f)
+from joblib import load  # Add this at the top if not already
+
+# Load compressed model
+model = load("urea_compressed.pkl")
+
 
 with open("label_encoders.pkl", "rb") as f:
     label_encoders = pickle.load(f)
